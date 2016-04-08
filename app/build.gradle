@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
+
+    defaultConfig {
+        applicationId "com.example.safaa.w3w"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    //This directive excludes duplicate files from the Android Package (APK) file created when you build your app.
+    packagingOptions {
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.google.android.gms:play-services-location:7.5.0'
+    compile 'com.esri.arcgis.android:arcgis-android:10.2.7'
+}
